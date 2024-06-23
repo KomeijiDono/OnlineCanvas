@@ -1,0 +1,104 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url("https://img2.baidu.com/it/u=4153848551,2430715780&fm=253&fmt=auto&app=120&f=JPEG?w=1422&h=800") no-repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+h1{
+    color: rgba(255, 255, 255, 0.704);
+    margin-bottom: 5px; /*下边距*/
+    font-family:'STXingkai';
+    font-size: 40px;
+}
+
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 380px;
+    height: 390px;
+    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(5px);
+    background: rgba(50, 50, 50, 0.516);
+    margin-top: 20px;
+}
+
+h2{
+    text-align: center;/*中心对齐*/
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+}
+
+.input-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-bottom: 7px;
+}
+
+.input-box > label{
+    margin-bottom: 5px;
+    color: rgba(255, 255, 255, 0.793);
+    font-size: 13px;
+}
+
+.input-box > input{
+    box-sizing: border-box;
+    margin-bottom: 5px;
+    color: white;
+    font-size: 14px;
+    height: 35px;
+    width: 250px;
+    background: rgba(255,255,255,0.3);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    transition: 0.3s;
+    outline: none;
+    padding: 0 10px;
+}
+
+.input-box > input:focus{
+    border: 2px solid rgba(219, 88, 88, 0.8);
+}
+
+a{
+    color:  rgba(255,255,255,0.5);
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.2s;
+    width: 250px;
+    text-align:end;
+}
+
+a:hover{
+    color: blue;
+    font-size: 13px;
+}
+
+button{
+    width: 120px;
+    height: 35px;
+    border:  1px solid rgba(197,81,58,0.8);
+    background: rgba(197,81,58,0.5);
+    color: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+button:hover {
+    border:  1px solid rgba(255,255,255,0.8);
+    background: rgba(255,255,255,0.5);
+}

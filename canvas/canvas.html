@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <title>在线白板</title>
+        <link rel="stylesheet" type="text/css" href="./canvas/style.css">
+    </head>
+    <body>
+        <div id="groupSelection">
+            <h2>创建或加入一个组</h2>
+            <button id="createGroupButton">点击创建新的组</button>
+            <input type="text" id="joinGroupInput" placeholder="输入组ID加入已有的组">
+            <button id="joinGroupButton">加入组</button>
+        </div>
+        <div id="whiteboardContainer" style="display: none">
+            <main>
+                <div id="toolbar">
+                    <div id="leftToolbar">
+                        <button id="selectButton" onclick="setDrawMode('select')">选择</button>
+                        <button id="lineButton" onclick="setDrawMode('line')">画笔</button>
+                        <button id="rectButton" onclick="setDrawMode('rect')">矩形</button>
+                        <button id="circleButton" onclick="setDrawMode('circle')">圆形</button>
+                        <button id="triangleButton" onclick="setDrawMode('triangle')">三角形</button>
+                        <button id="clearButton" onclick="clearCanvas()">清屏</button>
+                        <form>
+                            <!--<input class="jscolor" id="color-picker" onchange="changeColor(this.jscolor)"
+                            value="#000000">jsclor已更新不建议使用类名安装-->
+                            <input data-jscolor="jscolor" id="color-picker" onchange="changeColor(this.jscolor)" value="#000000">
+                            <input type="range" id="weight-slider" name="weight" min="1" max="30" 
+                            step="any" value="3">
+                        </form>
+                    </div>
+                    <div id="rightToolbar">
+                            <div id="groupInfoContainer">
+                            <button>组内信息</button>
+                            <div id="groupInfoList">
+                                <ul id="groupInfo">
+
+                                </ul>
+                            </div>
+                        </div>
+                        <button id="switchGroupButton">切换组</button>
+                    </div>
+                </div>
+            </main>
+            <div id="notifications"></div>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.5.2/jscolor.min.js"></script>
+            <script src="https://cdn.socket.io/4.7.4/socket.io.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.1/p5.js"></script>
+            <script src="./canvas/sketch.js"></script>
+            <script src="./canvas/selectgraph.js"></script>
+            <script>
+                // 检查用户是否已登录
+                const token = localStorage.getItem('token');
+                if (!token) {
+                    // 未登录则重定向到登录页面
+                    window.location.href = "/";
+                }
+                
+                let groupId = null;
+                let isAdmin = false;
+                // 创建组按钮点击逻辑
+                document.getElementById("createGroupButton").addEventListener("click", function() {
+                    const newGroupId = prompt("请输入新组的ID：");
+                    if (newGroupId) {
+                        socket.emit("createGroup", { username, token, groupId: newGroupId });
+                    }
+                });
+
+                // 加入组按钮点击逻辑
+                document.getElementById("joinGroupButton").addEventListener("click", function() {
+                    const inputGroupId = document.getElementById("joinGroupInput").value;
+                    if (inputGroupId) {
+                        socket.emit("joinGroup", { username, token, groupId: inputGroupId });
+                    }
+                });
+
+                // 切换组按钮点击逻辑
+                document.getElementById("switchGroupButton").addEventListener("click", function() {
+                groupId = null;
+                isAdmin = false;
+                document.getElementById("whiteboardContainer").style.display = "none";
+                document.getElementById("groupSelection").style.display = "block";
+            });
+            </script>
+        </div>
+    </body>
+</html>
