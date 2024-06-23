@@ -17,4 +17,4 @@ Create table Users(
 );
 ```
 4.在终端上输入node server.js，即可启动项目。  
-5.在任意浏览器上访问http://localhost:5500即可进入首页。  
+5.在任意浏览器上访问http://localhost:5500 即可进入首页。  
