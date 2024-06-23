@@ -128,12 +128,12 @@ const secretKey = "canvas";
 
 // 连接到 SQL Server 数据库,配置数据库连接选项
 const config = {
-    server: "LAPTOP-HLPDDOSD",
+    server: "",
     authentication: {
         type: "default",
         options: {
             userName: "sa",
-            password: "27835312Luo",
+            password: "",
         },
     },
     options: {
