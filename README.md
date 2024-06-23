@@ -1,7 +1,7 @@
 ## 这是一个毕业设计项目，存在许多不足之处。
 ## 本项目是一个多人实时协作的白板系统。
 ### 使用方法：
-1.首先在计算机上安装Node.js       Node.js官网：https://nodejs.org/zh-cn  
+1.首先在计算机上安装Node.js&emsp;&emsp;&emsp;&emsp;&emsp;Node.js官网：https://nodejs.org/zh-cn  
 2.克隆项目到本地  
 3.项目使用SQL Server数据库，请将server.js中的数据库配置修改为您的数据库配置，然后执行以下SQL语句：
 ```
